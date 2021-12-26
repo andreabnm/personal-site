@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
-    --main-bg-color: white;
-    --second-bg-color: #606167;
+    --main-bg-color: #FAF3F3;
+    --second-bg-color: #A7BBC7;
     --body-font: 'Poppins', sans-serif;
+    --namecard-bgcolor: #E1E5EA;
     --text-color-primary: #262626;
-    --text-color-secondary: #d5d5d5;
-    --link-color: #F05454;
+    --text-color-secondary: #FAF3F3;
+    --link-color: #dc798c;
     --link-hover-color: #C61600;
     --link-press-color: #A01200;
     --photo-border: rgba(0, 0, 0, .5);
@@ -23,10 +24,12 @@ body {
 }
 
 body.dark {
-    --main-bg-color: #262626;
-    --second-bg-color: #313132; /*#b0adfad;*/
+    --main-bg-color: #334756;
+    --second-bg-color: #082032;
+    --namecard-bgcolor: #2C394B;
     --text-color-primary: white;
-    --text-color-secondary: #eee5e5;
+    --text-color-secondary: #EDEDED;
+    --link-color: #da1043;
     --photo-border: rgba(255, 255, 255, 0.50);
 }
 
@@ -47,13 +50,18 @@ footer {
     padding-right: 4rem;
 }
 
+
 .nav-link, #change_theme {
     color: var(--text-color-secondary);
 }
 
-.nav-link:hover, #change_theme:hover {
+.nav-link:hover, #change_theme:hover, .fa-bars:hover {
     color: var(--text-color-primary);
     cursor: pointer;
+}
+
+.navbar-toggler-icon {
+    color: var(--text-color-secondary);
 }
 
 a:link {
@@ -87,18 +95,42 @@ a:link {
 .my-4, .mycontainer {
     max-width: 60%; 
 }
+
+.my-4 {
+    background-color: var(--text-color-primary);
+}
   
+.namecontainer {
+    max-width: 100%; 
+    background-color: var(--namecard-bgcolor);
+}
+
+.vertical-center {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+  }
+
 .namecard {
+    max-width: 60%;
+    display: block;
+    margin: 0 auto;
+    
     display: flex;
     align-items: center;
     justify-content: space-around;
   }
 
-.name {
+.name, .description {
     white-space: nowrap;
 }
 
+.description {
+    font-size: 1.2rem;
+}
+
 .myphoto {
+    white-space: nowrap;
     border-radius: 50%;
     border: 3px solid var(--photo-border);
 }
