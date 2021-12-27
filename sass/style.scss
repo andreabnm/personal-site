@@ -1,36 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+$body-font: 'Poppins', sans-serif;
 
-:root {
-    --main-bg-color: #FAF3F3;
-    --second-bg-color: #A7BBC7;
-    --body-font: 'Poppins', sans-serif;
-    --namecard-bgcolor: #E1E5EA;
-    --text-color-primary: #262626;
-    --text-color-secondary: #FAF3F3;
-    --link-color: #dc798c;
-    --link-hover-color: #C61600;
-    --link-press-color: #A01200;
-    --photo-border: rgba(0, 0, 0, .5);
-}
+
+// Light theme colors
+$main-bg-color: #FAF3F3;
+$second-bg-color: #A7BBC7;
+$namecard-bgcolor: #E1E5EA;
+$text-color-primary: #262626;
+$text-color-secondary: #FAF3F3;
+$link-color: #dc798c;
+$link-hover-color: #C61600;
+$link-press-color: #A01200;
+$photo-border: rgba(0, 0, 0, .5);
+
+// Dark theme colors
+$main-bg-color-dark: #334756;
+$second-bg-color-dark: #082032;
+$namecard-bgcolor-dark: #2C394B;
+$text-color-primary-dark: white;
+$text-color-secondary-dark: #EDEDED;
+$link-color-dark: #da1043;
+$photo-border-dark: rgba(255, 255, 255, 0.50);
+
 
 html {
     scroll-behavior: smooth;
+
+    --main-bg-color: #{$main-bg-color};
+    --second-bg-color: #{$second-bg-color};
+    --namecard-bgcolor: #{$namecard-bgcolor};
+    --text-color-primary: #{$text-color-primary};
+    --text-color-secondary: #{$text-color-secondary};
+    --link-color: #{$link-color};
+    --link-hover-color: #{$link-hover-color};
+    --link-press-color: #{$link-hover-color};
+    --photo-border: #{$photo-border};
 }
 
 body {
-    font-family: var(--body-font);
+    font-family: $body-font;
     background-color: var(--main-bg-color);
     color: var(--text-color-primary);
 }
 
 body.dark {
-    --main-bg-color: #334756;
-    --second-bg-color: #082032;
-    --namecard-bgcolor: #2C394B;
-    --text-color-primary: white;
-    --text-color-secondary: #EDEDED;
-    --link-color: #da1043;
-    --photo-border: rgba(255, 255, 255, 0.50);
+    --main-bg-color: #{$main-bg-color-dark};
+    --second-bg-color: #{$second-bg-color-dark};
+    --namecard-bgcolor: #{$namecard-bgcolor-dark};
+    --text-color-primary: #{$text-color-primary-dark};
+    --text-color-secondary: #{$text-color-secondary-dark};
+    --link-color: #{$link-color-dark};
+    --photo-border: #{$photo-border-dark};
+}
+
+.navbar {
+    background-color: var(--second-bg-color);
+    color: white;
+    padding: 1rem;
+
+    .navbar-toggler-icon {
+        color: var(--text-color-secondary);
+    }
+
+    #change_theme { 
+        align-self: center;
+        justify-self: end;
+    }
+    
 }
 
 footer {
@@ -39,17 +74,11 @@ footer {
     padding-bottom: 2rem;
 }
 
-.navbar {
-    background-color: var(--second-bg-color);
-    color: white;
-    padding: 1rem;
-}
 
 .nav-item {
     padding-left: 4rem;
     padding-right: 4rem;
 }
-
 
 .nav-link, #change_theme {
     color: var(--text-color-secondary);
@@ -58,10 +87,6 @@ footer {
 .nav-link:hover, #change_theme:hover, .fa-bars:hover {
     color: var(--text-color-primary);
     cursor: pointer;
-}
-
-.navbar-toggler-icon {
-    color: var(--text-color-secondary);
 }
 
 a:link {
@@ -83,23 +108,17 @@ a:link {
     background-color: var(--link-press-color);
 }
 
-#change_theme { 
-    align-self: center;
-    justify-self: end;
-}
-
 .mycontainer {
     padding-top: 2rem;
-}
-
-.my-4, .mycontainer {
     max-width: 60%; 
 }
 
 .my-4 {
+    
     background-color: var(--text-color-primary);
+    max-width: 60%; 
 }
-  
+
 .namecontainer {
     max-width: 100%; 
     background-color: var(--namecard-bgcolor);
@@ -139,27 +158,33 @@ a:link {
     padding-bottom: 2.5rem;
 }
 
+
 .skill_title {
     padding-top: 1rem;
     padding-bottom: 1rem;  
-}
 
-.skill_title > .svg-inline--fa {
-    margin-left: 0.5rem;
-    font-size: 1.2rem;
+    .svg-inline--fa {
+        margin-left: 0.5rem;
+        font-size: 1.2rem;
+    }
 }
 
 .skills_arrow {
     transition: .4s;
 }
 
-.skill_close .skill_list {
-    height: 0;
-    overflow: hidden;
+.skill_close {
+    .skill_list {
+        height: 0;
+        overflow: hidden;
+    }
+
 }
 
-.skill_open .skill_list {
-    height: max-content;
+.skill_open {
+     .skill_list {
+        height: max-content;
+    }
 }
 
 .skill_list {
@@ -192,10 +217,11 @@ a:link {
 }
 
 
-
-.social a {
-    font-size: 2rem;
-    padding: 2rem;
+.social {
+    a {
+        font-size: 2rem;
+        padding: 2rem;
+    }
 }
 
 .fa-linkedin {
@@ -210,11 +236,12 @@ a:link {
 .fa-github {
     color: var(--text-color-primary);
 }
+
 .fa-linkedin:hover,
 .fa-twitter:hover,
 .fa-instagram:hover,
 .fa-github:hover {
-  color: var(--color-secondary);
+    color: var(--text-color-secondary);
 }
 
 .col-form-label, .form-control {
@@ -246,3 +273,7 @@ a:link {
         text-align: right;
     }
  }
+
+
+
+
